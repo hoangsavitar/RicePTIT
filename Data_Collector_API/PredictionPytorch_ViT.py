@@ -48,10 +48,10 @@ class Normalize_Tensor():
     return img
 
 class ModelPredict:
-    def __init__(self, device="cuda", model_path="models/ViT_244x244_16.pth"):
+    def __init__(self, device="cpu", model_path="models/ViT_244x244_16.pth"):
         self.device = torch.device(device=device)
         self.model = ViTBase16(n_classes=4)
-        self.model.load_state_dict(torch.load(model_path))
+        self.model.load_state_dict(torch.load(model_path,map_location='cpu'))
         self.model.to(device)
         self.model.eval()
 

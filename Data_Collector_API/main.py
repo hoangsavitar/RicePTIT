@@ -176,4 +176,4 @@ def visual_predict_percent():
     )
 
 
-# app.run(port=5000)
+app.run(port=5000)
